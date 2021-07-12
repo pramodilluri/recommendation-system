@@ -4,8 +4,6 @@ print("============ Movie Recommendation System ===============")
 
 import pandas
 
-
-
 def sort_by_agebucket():
 
     age_bucket_recs = [{}, {}, {}]

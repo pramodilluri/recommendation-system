@@ -4,7 +4,6 @@ print("============ Movie Recommendation System ===============")
 
 import pandas
 
-agebuckets = [18, 35, 50]
 
 
 def sort_by_agebucket():
@@ -124,6 +123,10 @@ def recommend_movies(age, max):
 
 df = pandas.read_csv('RatingsInput.csv')
 
+agebuckets = [18, 35, 50]
+age_rec = {}
+dict = {}
+
 index=0
 for i in df['MovieName']:
     [id, name] = i.split(',')
@@ -143,10 +146,7 @@ for i in df['MovieName']:
 df.to_csv('RatingsInput_stage_2.csv')
 
 
-age_rec = {}
-dict = {}
 index = 0
-
 for item in df['UserAge']:
     if not age_rec.get(item):
         age_rec[item] = {}
@@ -161,7 +161,6 @@ for item in df['UserAge']:
 
 
 age_bucket_recs = sort_by_agebucket()
-
 
 # find recommendation for new user list
 df = pandas.read_csv('NewUsers.csv')
